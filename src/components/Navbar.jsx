@@ -36,7 +36,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/40 backdrop-blur-xl flex justify-between items-center px-8 py-4 shadow-[0_20px_40px_rgba(96,89,135,0.06)] border-b border-white/40">
       <div className="text-xl font-bold tracking-tighter text-on-background">
-        Luminous Portfolio
+        Anom Abebe
       </div>
       
       <div className="hidden md:flex items-center gap-10 font-manrope font-light tracking-tight text-sm">
@@ -44,6 +44,8 @@ export default function Navbar() {
           <a
             key={item.name}
             href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
             className={`relative text-on-background transition-all duration-300 ${
               activeSection === item.href.slice(1)
                 ? "opacity-100 text-primary font-medium"
@@ -62,9 +64,13 @@ export default function Navbar() {
         ))}
       </div>
       
-      <button className="bg-gradient-to-r from-primary to-primary-dim text-white px-6 py-2 rounded-full text-xs uppercase tracking-widest active:scale-95 transition-all duration-200 shadow-lg shadow-primary/10">
-        Resume
-      </button>
+      <a
+        href={PORTFOLIO_DATA.resumeUrl}
+        download="anomabebe.pdf"
+        className="bg-gradient-to-r from-primary to-primary-dim text-white px-6 py-2 rounded-full text-xs uppercase tracking-widest active:scale-95 transition-all duration-200 shadow-lg shadow-primary/10"
+      >
+        Downlod CV
+      </a>
     </nav>
   );
 }

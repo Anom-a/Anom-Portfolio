@@ -4,68 +4,92 @@
  */
 
 export const PORTFOLIO_DATA = {
-  name: "Julian",
-  fullName: "Julian Smith",
-  title: "Software Engineering Student",
-  tagline: "Crafting digital experiences at the intersection of intelligence and design.",
+  name: "Anom",
+  fullName: "Anom Abebe",
+  title: "Anom Abebe",
+  tagline: "Building backend systems and transitioning into production-ready machine learning engineering",
+  location: "Ethiopia",
+  availability: "Open to internships and junior roles",
+  resumeUrl: "/cv/anomabebe.pdf",
   about: {
-    headline: "Engineering clarity through code.",
-    description1: "I bridge the gap between complex logic and human emotion. My approach is rooted in the belief that software should feel weightless—an extension of the user's intent rather than a hurdle.",
-    description2: "With a foundation in AI engineering and a passion for refined aesthetics, I build systems that are not only performant but narratively compelling."
+    headline: "Backend systems engineer transitioning into ML engineering.",
+    description1: "Software engineering student focused on backend systems and data-driven applications.",
+    description2: "Experienced in building REST APIs with Go and Django, working with SQL and MongoDB, and analyzing data using Python tools. Currently transitioning toward machine learning engineering and MLOps."
   },
   skills: [
-    "React", "JavaScript", "Node.js", "Tailwind CSS", "Next.js", "Python", "AI Engineering", "UI/UX Design"
+    "Go (Gin)", "Django", "REST APIs", "Python", "Pandas", "NumPy", "Matplotlib", "SQL", "MongoDB", "Clean architecture", "Git", "Error handling", "MLOps", "Scikit-learn", "System design", "postgres","langchain"
   ],
+  skillGroups: {
+    backend: ["Go (Gin)", "Django", "REST APIs"],
+    data: ["Python", "Pandas", "NumPy", "Matplotlib"],
+    databases: ["SQL", "MongoDB"],
+    practices: ["Clean architecture", "Git", "Error handling"],
+    learning: ["MLOps", "Scikit-learn", "System design"]
+  },
   projects: [
+    {
+      id: "leather-college-portal",
+      name: "Leather College Portal",
+      description: "Portal system for managing academic workflows and structured data operations",
+      highlights: [
+        "Designed system for handling institutional workflows",
+        "Implemented structured data management",
+        "Built maintainable backend architecture"
+      ],
+      stack: ["Django", "SQL", "REST APIs"],
+      image: "/lightcollege.png",
+      link: "https://github.com/Anom-a/light-institute-platform/",
+      demo: "",
+      code: ""
+    },
     {
       id: "orchestrix",
       name: "Orchestrix",
-      description: "A serious software project focused on complex task orchestration and clear product thinking. Built for high-performance distributed systems.",
-      stack: ["React", "Node.js", "Redis"],
-      image: "https://picsum.photos/seed/orchestrix/800/600",
-      link: "#"
+      description: "System-focused application for organizing backend processes",
+      highlights: [
+        "Designed modular system architecture",
+        "Organized workflow handling",
+        "Focused on clean backend structure"
+      ],
+      stack: ["Go (Gin)", "REST APIs", "MongoDB"],
+      image: "/orchestrix.png",
+      link: "https://github.com/Anom-a/Orchestrix",
+      demo: "",
+      code: ""
     },
     {
-      id: "college-portal",
-      name: "College Portal",
-      description: "An organized academic productivity platform for Light College. Streamlines student-teacher interactions and resource management.",
-      stack: ["Next.js", "PostgreSQL", "Tailwind"],
-      image: "https://picsum.photos/seed/college/800/600",
-      link: "#"
-    },
-    {
-      id: "rate-my-professor",
-      name: "Rate My Professor",
-      description: "A clean review and discovery platform for students to share feedback on faculty. Focused on intuitive search and data visualization.",
-      stack: ["React", "Firebase", "D3.js"],
-      image: "https://picsum.photos/seed/professor/800/600",
-      link: "#"
+      id: "rate-my-professors",
+      name: "Rate My Professors",
+      description: "Platform for submitting and viewing professor ratings",
+      highlights: [
+        "Handled user-generated data",
+        "Designed structured data models",
+        "Implemented backend logic for submissions"
+      ],
+      stack: ["Django", "REST APIs", "SQL"],
+      image: "/rate_my_proffesor.png",
+      link: "https://github.com/Anom-a/Rate-My-Proffesor",
+      demo: "",
+      code: ""
     }
   ],
   journey: [
     {
-      period: "2024 — PRESENT",
+      period: "Present",
       role: "Software Engineering Student",
-      company: "Tech University",
-      description: "Focusing on full-stack development, AI integration, and building practical software solutions for real-world problems."
-    },
-    {
-      period: "2023 — 2024",
-      role: "Open Source Contributor",
-      company: "Various Projects",
-      description: "Contributed to multiple React-based libraries and focused on improving UI/UX consistency in community tools."
-    },
-    {
-      period: "2022 — 2023",
-      role: "Self-Taught Developer",
-      company: "Independent Learning",
-      description: "Mastered the fundamentals of web development, starting with JavaScript and moving into modern frameworks like React."
+      company: "",
+      description: "Focused on backend systems and machine learning transition"
     }
   ],
   contact: {
-    email: "hello@luminous.com",
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com"
-  }
+    email: "anomabebe639@gmail.com",
+    github: "https://github.com/Anom-a",
+    linkedin: "https://www.linkedin.com/in/anom-abebe-37053928b/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    twitter: "https://x.com/anom_ab",
+    telegram: "https://t.me/anom_yah"
+  },
+  achievements: [],
+  certifications: [],
+  testimonials: [],
+  writing: []
 };

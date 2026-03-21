@@ -3,7 +3,10 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function ProjectCard({ project, index }) {
   return (
-    <motion.div
+    <motion.a
+      href={project.link || undefined}
+      target="_blank"
+      rel="noopener noreferrer"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -41,6 +44,6 @@ export default function ProjectCard({ project, index }) {
           ))}
         </div>
       </div>
-    </motion.div>
+    </motion.a>
   );
 }

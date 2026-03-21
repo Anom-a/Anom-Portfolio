@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronDown, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { ChevronDown, Github, Linkedin, Twitter, Mail, Send } from "lucide-react";
 import Navbar from "./components/Navbar";
 import ProjectCard from "./components/ProjectCard";
 import TimelineItem from "./components/TimelineItem";
@@ -8,6 +8,11 @@ import { PORTFOLIO_DATA } from "./constants";
 
 export default function App() {
   const [copied, setCopied] = useState(false);
+  const [contactForm, setContactForm] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(PORTFOLIO_DATA.contact.email);
@@ -29,6 +34,37 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleContactFormChange = (event) => {
+    const { name, value } = event.target;
+    setContactForm((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleContactSubmit = (event) => {
+    event.preventDefault();
+
+    const recipient = PORTFOLIO_DATA.contact.email;
+    if (!recipient) {
+      window.alert("Contact email is not configured yet.");
+      return;
+    }
+
+    const subject = encodeURIComponent(`Portfolio inquiry from ${contactForm.name}`);
+    const body = encodeURIComponent(
+      `Name: ${contactForm.name}\nEmail: ${contactForm.email}\n\nMessage:\n${contactForm.message}`
+    );
+
+    window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+
+    setContactForm({
+      name: "",
+      email: "",
+      message: ""
+    });
+  };
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -41,7 +77,7 @@ export default function App() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 z-50 p-4 bg-primary text-white rounded-full shadow-2xl shadow-primary/30 hover:bg-primary-dim transition-all active:scale-95"
+            className="fixed bottom-24 right-8 z-50 p-4 bg-primary text-white rounded-full shadow-2xl shadow-primary/30 hover:bg-primary-dim transition-all active:scale-95"
           >
             <ChevronDown className="rotate-180" size={24} />
           </motion.button>
@@ -63,7 +99,11 @@ export default function App() {
         >
           <div className="absolute inset-0 bg-primary-container/40 rounded-full blur-2xl animate-pulse" />
           <div className="relative w-full h-full bg-white/40 backdrop-blur-xl rounded-full border border-white/40 flex items-center justify-center shadow-2xl">
-            <div className="w-32 h-32 bg-gradient-to-tr from-primary to-primary-container rounded-full opacity-80 blur-sm" />
+            <img
+              src="/anomabebe.jpg"
+              alt="Anom Abebe"
+              className="w-full h-full object-cover rounded-full"
+            />
           </div>
         </motion.div>
         
@@ -92,7 +132,7 @@ export default function App() {
           transition={{ delay: 1 }}
           className="mt-20"
         >
-          <a href="#identity" className="flex flex-col items-center gap-2 opacity-50 hover:opacity-100 transition-opacity">
+          <a href="#identity" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2 opacity-50 hover:opacity-100 transition-opacity">
             <span className="text-[10px] tracking-[0.3em] uppercase font-bold">Discovery</span>
             <ChevronDown className="text-primary animate-bounce" />
           </a>
@@ -182,22 +222,30 @@ export default function App() {
               <p className="text-on-surface-variant font-light">Available for select collaborations and digital consulting.</p>
             </div>
             
-            <form className="relative z-10 space-y-10" onSubmit={(e) => e.preventDefault()}>
+            <form className="relative z-10 space-y-10" onSubmit={handleContactSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="group">
                   <label className="block text-[10px] uppercase tracking-widest text-primary mb-2 opacity-60 group-focus-within:opacity-100 transition-opacity font-bold">Your Name</label>
                   <input
                     type="text"
+                    name="name"
+                    value={contactForm.name}
+                    onChange={handleContactFormChange}
+                    required
                     className="w-full bg-transparent border-b-2 border-surface-container-highest focus:border-primary focus:outline-none px-0 py-3 text-on-background font-light transition-colors placeholder:text-surface-container-highest"
-                    placeholder="Julian Smith"
+                    placeholder="Jake Paul"
                   />
                 </div>
                 <div className="group">
                   <label className="block text-[10px] uppercase tracking-widest text-primary mb-2 opacity-60 group-focus-within:opacity-100 transition-opacity font-bold">Email Address</label>
                   <input
                     type="email"
+                    name="email"
+                    value={contactForm.email}
+                    onChange={handleContactFormChange}
+                    required
                     className="w-full bg-transparent border-b-2 border-surface-container-highest focus:border-primary focus:outline-none px-0 py-3 text-on-background font-light transition-colors placeholder:text-surface-container-highest"
-                    placeholder="hello@luminous.com"
+                    placeholder="hello@gmail.com"
                   />
                 </div>
               </div>
@@ -205,6 +253,10 @@ export default function App() {
                 <label className="block text-[10px] uppercase tracking-widest text-primary mb-2 opacity-60 group-focus-within:opacity-100 transition-opacity font-bold">Project Inquiry</label>
                 <textarea
                   rows="4"
+                  name="message"
+                  value={contactForm.message}
+                  onChange={handleContactFormChange}
+                  required
                   className="w-full bg-transparent border-b-2 border-surface-container-highest focus:border-primary focus:outline-none px-0 py-3 text-on-background font-light transition-colors placeholder:text-surface-container-highest resize-none"
                   placeholder="Tell me about your vision..."
                 />
@@ -221,9 +273,9 @@ export default function App() {
       
       {/* Footer */}
       <footer className="w-full py-12 px-8 bg-background border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div className="text-lg font-bold text-on-background">Luminous Portfolio</div>
+        <div className="text-lg font-bold text-on-background">Anom Abebe</div>
         <div className="text-[10px] uppercase tracking-widest text-on-surface-variant opacity-60 font-bold">
-          © 2024 Luminous Ether. All rights reserved. Status: Aliveness Active.
+          © 2024 anom. All rights reserved. Status: Aliveness Active.
         </div>
         <div className="flex gap-8 items-center">
           <button 
@@ -232,10 +284,11 @@ export default function App() {
           >
             {copied ? "Copied!" : "Copy Email"}
           </button>
-          <a href={PORTFOLIO_DATA.contact.linkedin} className="opacity-50 hover:opacity-100 hover:text-primary transition-colors"><Linkedin size={18} /></a>
-          <a href={PORTFOLIO_DATA.contact.github} className="opacity-50 hover:opacity-100 hover:text-primary transition-colors"><Github size={18} /></a>
-          <a href={PORTFOLIO_DATA.contact.twitter} className="opacity-50 hover:opacity-100 hover:text-primary transition-colors"><Twitter size={18} /></a>
-          <a href={`mailto:${PORTFOLIO_DATA.contact.email}`} className="opacity-50 hover:opacity-100 hover:text-primary transition-colors"><Mail size={18} /></a>
+          <a href={PORTFOLIO_DATA.contact.linkedin} target="_blank" rel="noopener noreferrer" className="opacity-50 hover:opacity-100 hover:text-primary transition-colors"><Linkedin size={18} /></a>
+          <a href={PORTFOLIO_DATA.contact.github} target="_blank" rel="noopener noreferrer" className="opacity-50 hover:opacity-100 hover:text-primary transition-colors"><Github size={18} /></a>
+          <a href={PORTFOLIO_DATA.contact.twitter} target="_blank" rel="noopener noreferrer" className="opacity-50 hover:opacity-100 hover:text-primary transition-colors"><Twitter size={18} /></a>
+          <a href={PORTFOLIO_DATA.contact.telegram} target="_blank" rel="noopener noreferrer" className="opacity-50 hover:opacity-100 hover:text-primary transition-colors"><Send size={18} /></a>
+          <a href={`mailto:${PORTFOLIO_DATA.contact.email}`} target="_blank" rel="noopener noreferrer" className="opacity-50 hover:opacity-100 hover:text-primary transition-colors"><Mail size={18} /></a>
         </div>
       </footer>
     </div>
