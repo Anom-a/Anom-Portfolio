@@ -120,9 +120,9 @@ export default function App() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="text-xl md:text-2xl font-light text-on-surface-variant leading-relaxed max-w-2xl mx-auto"
+            className="text-xl md:text-2xl font-light text-on-surface-variant leading-relaxed max-w-3xl mx-auto"
           >
-            {PORTFOLIO_DATA.tagline.split('intersection of')[0]} intersection of <span className="text-primary font-medium italic">intelligence</span> and <span className="text-primary font-medium italic">design</span>.
+            {PORTFOLIO_DATA.tagline}
           </motion.p>
         </div>
         
@@ -159,18 +159,27 @@ export default function App() {
           </div>
           
           <div className="md:col-span-5 pt-12 md:pt-24">
-            <div className="flex flex-wrap gap-3">
-              {PORTFOLIO_DATA.skills.map((skill, index) => (
-                <motion.span
-                  key={skill}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="px-6 py-3 bg-white shadow-[0_10px_30px_rgba(96,89,135,0.04)] rounded-xl text-xs font-bold text-on-background tracking-wider border border-white/60"
-                >
-                  {skill.toUpperCase()}
-                </motion.span>
+            <div className="space-y-8">
+              {Object.entries(PORTFOLIO_DATA.skillGroups).map(([group, skills]) => (
+                <div key={group}>
+                  <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary mb-4 opacity-60">
+                    {group}
+                  </h4>
+                  <div className="flex flex-wrap gap-3">
+                    {skills.map((skill, index) => (
+                      <motion.span
+                        key={skill}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.05 }}
+                        className="px-6 py-3 bg-white shadow-[0_10px_30px_rgba(96,89,135,0.04)] rounded-xl text-xs font-bold text-on-background tracking-wider border border-white/60"
+                      >
+                        {skill.toUpperCase()}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </div>

@@ -69,7 +69,7 @@ export default function Navbar() {
         download="anomabebe.pdf"
         className="bg-gradient-to-r from-primary to-primary-dim text-white px-6 py-2 rounded-full text-xs uppercase tracking-widest active:scale-95 transition-all duration-200 shadow-lg shadow-primary/10"
       >
-        Downlod CV
+        Download CV
       </a>
     </nav>
   );

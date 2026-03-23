@@ -1,95 +1,133 @@
-/**
- * Portfolio Content Constants
- * Edit this file to customize the portfolio content.
- */
-
 export const PORTFOLIO_DATA = {
   name: "Anom",
   fullName: "Anom Abebe",
-  title: "Anom Abebe",
-  tagline: "Building backend systems and transitioning into production-ready machine learning engineering",
+  title: "Backend & ML Engineer",
+  tagline: "I build backend systems in Go and Python — and I'm moving into ML engineering.",
   location: "Ethiopia",
-  availability: "Open to internships and junior roles",
+  availability: "Open to remote internships and junior backend / ML roles",
   resumeUrl: "/cv/anomabebe.pdf",
+
   about: {
-    headline: "Backend systems engineer transitioning into ML engineering.",
-    description1: "Software engineering student focused on backend systems and data-driven applications.",
-    description2: "Experienced in building REST APIs with Go and Django, working with SQL and MongoDB, and analyzing data using Python tools. Currently transitioning toward machine learning engineering and MLOps."
+    headline: "Backend engineer moving into ML.",
+    description1:
+      "Third-year Software Engineering student with hands-on experience building REST APIs in Go (Gin) and Django, working with MongoDB and SQL, and shipping real systems used by real institutions.",
+    description2:
+      "Currently building Flaky Test Forensics — an AI-powered platform that detects flaky CI tests, diagnoses root causes, and suggests fixes using Gemini Flash 2.0. Targeting remote backend and ML engineering roles within the next 12 months.",
   },
-  skills: [
-    "Go (Gin)", "Django", "REST APIs", "Python", "Pandas", "NumPy", "Matplotlib", "SQL", "MongoDB", "Clean architecture", "Git", "Error handling", "MLOps", "Scikit-learn", "System design", "postgres","langchain"
-  ],
+
   skillGroups: {
-    backend: ["Go (Gin)", "Django", "REST APIs"],
+    backend: ["Go", "Gin", "Django", "REST APIs", "Docker"],
+    databases: ["MongoDB", "PostgreSQL", "SQL"],
     data: ["Python", "Pandas", "NumPy", "Matplotlib"],
-    databases: ["SQL", "MongoDB"],
-    practices: ["Clean architecture", "Git", "Error handling"],
-    learning: ["MLOps", "Scikit-learn", "System design"]
+    practices: ["Clean architecture", "Git", "System design", "Error handling"],
+    learning: ["MLOps", "Scikit-learn", "LangChain", "Gemini API"],
   },
+
   projects: [
     {
-      id: "leather-college-portal",
-      name: "Leather College Portal",
-      description: "Portal system for managing academic workflows and structured data operations",
+      id: "flaky-test-forensics",
+      name: "Flaky Test Forensics",
+      description:
+        "AI-powered platform that detects flaky CI tests, diagnoses root causes, and suggests fixes. Integrates with GitHub webhooks and uses Gemini Flash 2.0 for diagnosis. Built with Go + Gin, MongoDB, and React.",
       highlights: [
-        "Designed system for handling institutional workflows",
-        "Implemented structured data management",
-        "Built maintainable backend architecture"
+        "GitHub webhook integration for real-time CI event capture",
+        "Gemini Flash 2.0 embedded as AI diagnosis agent",
+        "Go + Gin API gateway with MongoDB backend",
+        "Docker Compose for local dev environment",
       ],
-      stack: ["Django", "SQL", "REST APIs"],
+      stack: ["Go", "Gin", "MongoDB", "React", "Gemini Flash 2.0", "Docker"],
+      image: "/flaky.png",
+      link: "", // no live link yet — shows "In Progress" badge
+      demo: "",
+      code: "https://github.com/Anom-a",
+    },
+    {
+      id: "leather-college-portal",
+      name: "Leather College Academic Portal",
+      description:
+        "Full-stack academic portal built with a team, serving 5 user roles — Admin, Registrar, Instructor, Student, and Public — with role-based access control across all workflows.",
+      highlights: [
+        "RBAC across 5 distinct user roles",
+        "Built as a team project for a real institution",
+        "Django backend with SQL database",
+        "REST API powering a React frontend",
+      ],
+      stack: ["Django", "SQL", "REST APIs", "React"],
       image: "/lightcollege.png",
       link: "https://github.com/Anom-a/light-institute-platform/",
       demo: "",
-      code: ""
+      code: "https://github.com/Anom-a/light-institute-platform/",
     },
     {
       id: "orchestrix",
       name: "Orchestrix",
-      description: "System-focused application for organizing backend processes",
+      description:
+        "Task management REST API built in Go with Gin and MongoDB. Focused on clean architecture, proper error handling, and idiomatic Go patterns — my first production-minded Go project.",
       highlights: [
-        "Designed modular system architecture",
-        "Organized workflow handling",
-        "Focused on clean backend structure"
+        "RESTful API with full CRUD operations",
+        "MongoDB integration with Go driver",
+        "Clean architecture with separation of concerns",
+        "Idiomatic Go error handling patterns",
       ],
-      stack: ["Go (Gin)", "REST APIs", "MongoDB"],
+      stack: ["Go", "Gin", "MongoDB", "REST APIs"],
       image: "/orchestrix.png",
       link: "https://github.com/Anom-a/Orchestrix",
       demo: "",
-      code: ""
+      code: "https://github.com/Anom-a/Orchestrix",
     },
     {
       id: "rate-my-professors",
       name: "Rate My Professors",
-      description: "Platform for submitting and viewing professor ratings",
+      description:
+        "Platform for students to submit and browse professor ratings. Built the full backend — data models, submission logic, and REST API — using Django and SQL.",
       highlights: [
-        "Handled user-generated data",
-        "Designed structured data models",
-        "Implemented backend logic for submissions"
+        "User-generated rating submissions with validation",
+        "Structured relational data models",
+        "Django REST API backend",
       ],
       stack: ["Django", "REST APIs", "SQL"],
       image: "/rate_my_proffesor.png",
       link: "https://github.com/Anom-a/Rate-My-Proffesor",
       demo: "",
-      code: ""
-    }
+      code: "https://github.com/Anom-a/Rate-My-Proffesor",
+    },
   ],
+
   journey: [
     {
-      period: "Present",
+      period: "2026 — Present",
+      role: "Building Flaky Test Forensics",
+      company: "Side Project",
+      description:
+        "Designing and building an AI-powered developer tool from scratch — Go API gateway, MongoDB backend, GitHub webhook integration, and Gemini Flash 2.0 for AI diagnosis. Covers the full product lifecycle.",
+    },
+    {
+      period: "2024 — 2025",
+      role: "Team Project — Academic Portal",
+      company: "University Collaboration",
+      description:
+        "Co-built a full-stack academic portal for a real institution with a small team. Contributed backend architecture, RBAC design across 5 roles, and REST API development in Django.",
+    },
+    {
+      period: "2023 — Present",
       role: "Software Engineering Student",
-      company: "",
-      description: "Focused on backend systems and machine learning transition"
-    }
+      company: "University",
+      description:
+        "Third-year student with a Go and backend focus. Completed coursework in database systems, algorithms, and software architecture. Pursuing ML engineering as a career direction.",
+    },
   ],
+
   contact: {
     email: "anomabebe639@gmail.com",
     github: "https://github.com/Anom-a",
-    linkedin: "https://www.linkedin.com/in/anom-abebe-37053928b/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    linkedin: "https://www.linkedin.com/in/anom-abebe-37053928b/",
     twitter: "https://x.com/anom_ab",
-    telegram: "https://t.me/anom_yah"
+    telegram: "https://t.me/anom_yah",
   },
+
+  // Ready to fill when you have them
   achievements: [],
   certifications: [],
   testimonials: [],
-  writing: []
+  writing: [],
 };
