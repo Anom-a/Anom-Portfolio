@@ -8,3 +8,6 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 )
+
+// Signal to vite-plugin-prerender that the app has rendered
+document.dispatchEvent(new Event('render-event'))
