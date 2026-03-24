@@ -85,14 +85,14 @@ export default function App() {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="relative w-64 h-64 mb-16"
+          className="relative w-36 h-36 md:w-44 md:h-44 mt-2 mb-8 md:mb-10"
         >
           <div className="absolute inset-0 bg-primary-container/40 rounded-full blur-2xl animate-pulse" />
-          <div className="relative w-full h-full bg-white/40 backdrop-blur-xl rounded-full border border-white/40 flex items-center justify-center shadow-2xl">
+          <div className="relative w-full h-full bg-white/40 backdrop-blur-xl rounded-full border-2 border-primary/30 flex items-center justify-center shadow-[0_8px_30px_rgba(0,0,0,0.10)] overflow-hidden">
             <img
               src="/anomabebe.jpg"
               alt="Anom Abebe"
-              className="w-full h-full object-cover rounded-full"
+              className="w-full h-full object-cover object-[center_36%] rounded-full"
             />
           </div>
         </motion.div>
